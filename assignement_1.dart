@@ -126,7 +126,7 @@ void main() {
   // Question No: 6       Start
   print("===================================");
 
-  print("Enter the Value :");
+  print("Enter the Value of Alphabet:");
   String? alphabet = stdin.readLineSync();
 
   if (alphabet == "a" ||
@@ -150,37 +150,39 @@ void main() {
   // Question No: 7       Start
   print("===================================");
 
+  String id;
+  String name;
+  int units;
+
   print("Enter Customer Id :");
-  String? id = stdin.readLineSync();
+  id = stdin.readLineSync()!;
 
   print("Enter Customer Name :");
-  String? name = stdin.readLineSync();
+  name = stdin.readLineSync()!;
 
   print("Enter Customer Units :");
-  dynamic unit = stdin.readLineSync();
+  units = int.parse(stdin.readLineSync()!);
 
-  dynamic finalAmount;
-  dynamic finalChargePerUnit;
+  double finalAmount = 0.0;
+  const double rate_1 = 1.20;
+  const double rate_2 = 1.50;
+  const double rate_3 = 1.80;
+  const double rate_4 = 2.00;
 
-  if (unit <= 199) {
-    finalChargePerUnit = 1.20;
-    finalAmount = unit * 1.20;
-  } else if (unit >= 200 && unit < 400) {
-    finalChargePerUnit = 1.50;
-    finalAmount = unit * 1.50;
-  } else if (unit >= 400 && unit < 600) {
-    finalChargePerUnit = 1.80;
-    finalAmount = unit * 1.80;
-  } else if (unit >= 600) {
-    finalChargePerUnit = 2.00;
-    finalAmount = unit * 2.00;
+  if (units <= 199) {
+    finalAmount = units * rate_1;
+  } else if (units >= 200 && units < 400) {
+    finalAmount = units * rate_2;
+  } else if (units >= 400 && units < 600) {
+    finalAmount = units * rate_3;
+  } else if (units >= 600) {
+    finalAmount = units * rate_4;
   }
 
   print("xxxxxxxxx-OUTPUT-xxxxxxxxxxx");
   print("Customer IDNO : $id");
   print("Customer Name : $name");
-  print("Unit Consumed : $unit");
-  print("Amount Charges @Rs. $finalChargePerUnit per unit : $finalAmount");
+  print("Unit Consumed : $units");
   print("Net Bill Amount : $finalAmount");
 
   print("===================================");
