@@ -100,23 +100,24 @@ void main() {
   // Question No: 6       Start
   print("===================================");
 
-  print("Enter the Value of Alphabet:");
-  String? alphabet = stdin.readLineSync();
+  Map<String, Map<String, dynamic>> world = {
+    'India': {
+      'capitalCity': 'New Delhi',
+      'currency': 'Indian Rupee',
+    },
+    'United States': {
+      'capitalCity': 'Washington, D.C.',
+      'currency': 'United States Dollar',
+    },
+    'Pakistan': {
+      'capitalCity': 'Islamabad',
+      'currency': 'Pakistani Rupees',
+    },
+  };
 
-  if (alphabet == "a" ||
-      alphabet == "e" ||
-      alphabet == "i" ||
-      alphabet == "o" ||
-      alphabet == "u" ||
-      alphabet == "A" ||
-      alphabet == "E" ||
-      alphabet == "I" ||
-      alphabet == "O" ||
-      alphabet == "U") {
-    print("$alphabet is a Vowel");
-  } else {
-    print("$alphabet is a Constant");
-  }
+  Map<String, dynamic>? countryDetails = world['Pakistan'];
+
+  print("Selected Country is : $countryDetails");
 
   print("===================================");
   // Question No: 6       End
@@ -124,40 +125,15 @@ void main() {
   // Question No: 7       Start
   print("===================================");
 
-  String id;
-  String name;
-  int units;
+  Map<String, double> expenses = {
+    'sun': 3000.0,
+    'mon': 3000.0,
+    'tue': 3234.0,
+  };
 
-  print("Enter Customer Id :");
-  id = stdin.readLineSync()!;
+  var updated = expenses.putIfAbsent('fri', () => 5000.0);
 
-  print("Enter Customer Name :");
-  name = stdin.readLineSync()!;
-
-  print("Enter Customer Units :");
-  units = int.parse(stdin.readLineSync()!);
-
-  double finalAmount = 0.0;
-  const double rate_1 = 1.20;
-  const double rate_2 = 1.50;
-  const double rate_3 = 1.80;
-  const double rate_4 = 2.00;
-
-  if (units <= 199) {
-    finalAmount = units * rate_1;
-  } else if (units >= 200 && units < 400) {
-    finalAmount = units * rate_2;
-  } else if (units >= 400 && units < 600) {
-    finalAmount = units * rate_3;
-  } else if (units >= 600) {
-    finalAmount = units * rate_4;
-  }
-
-  print("xxxxxxxxx-OUTPUT-xxxxxxxxxxx");
-  print("Customer IDNO : $id");
-  print("Customer Name : $name");
-  print("Unit Consumed : $units");
-  print("Net Bill Amount : $finalAmount");
+  print(updated);
 
   print("===================================");
   // Question No: 7       End
@@ -165,71 +141,251 @@ void main() {
   // Question No: 8       Start
   print("===================================");
 
-  String studentName;
-  print("Enter the Student Name :");
-  studentName = stdin.readLineSync()!;
+  List<Map<String, bool>> usersEligibility = [
+    {'name': 'John', 'eligible': true},
+    {'name': 'Alice', 'eligible': false},
+    {'name': 'Mike', 'eligible': true},
+    {'name': 'Sarah', 'eligible': true},
+    {'name': 'Tom', 'eligible': false},
+  ];
 
-  String studentRollNo;
-  print("Enter the Student Roll Number :");
-  studentRollNo = stdin.readLineSync()!;
+  List<Map<String, bool>> eligibleUsers = [];
 
-  String studentClass;
-  print("Enter the Student Class :");
-  studentClass = stdin.readLineSync()!;
+  usersEligibility.forEach((element) {
+    if (element['eligible'] == true) {
+      eligibleUsers.add(element);
+    }
+  });
 
-  int subject_1;
-  print("Enter Subject 1 Marks :");
-  subject_1 = int.parse(stdin.readLineSync()!);
-
-  int subject_2;
-  print("Enter Subject 2 Marks :");
-  subject_2 = int.parse(stdin.readLineSync()!);
-
-  int subject_3;
-  print("Enter Subject 3 Marks :");
-  subject_3 = int.parse(stdin.readLineSync()!);
-
-  int subject_4;
-  print("Enter Subject 4 Marks :");
-  subject_4 = int.parse(stdin.readLineSync()!);
-
-  int subject_5;
-  print("Enter Subject 5 Marks :");
-  subject_5 = int.parse(stdin.readLineSync()!);
-
-  String grade;
-  double percentage;
-
-  int totalMarks = subject_1 + subject_2 + subject_3 + subject_4 + subject_5;
-  percentage = (totalMarks / 500) * 100;
-
-  if (percentage >= 90) {
-    grade = "A+";
-  } else if (percentage >= 80) {
-    grade = "A";
-  } else if (percentage >= 70) {
-    grade = "B";
-  } else if (percentage >= 60) {
-    grade = "C";
-  } else if (percentage >= 50) {
-    grade = "D";
-  } else {
-    grade = "Fail";
-  }
-
-  print("******** Marks Sheet ***********");
-  print("Student Name: $studentName");
-  print("Roll Number: $studentRollNo");
-  print("Class: $studentClass");
-  print("Subject 1 Marks: $subject_1");
-  print("Subject 2 Marks: $subject_2");
-  print("Subject 3 Marks: $subject_3");
-  print("Subject 4 Marks: $subject_4");
-  print("Subject 5 Marks: $subject_5");
-  print("Total Marks: $totalMarks");
-  print("Percentage: ${percentage.toStringAsFixed(2)}%");
-  print("Grade Obtained: $grade");
+  eligibleUsers.forEach((element) {
+    print('Name: ${element['name']}');
+    print('Eligible: ${element['eligible']}');
+  });
 
   print("===================================");
   // Question No: 8       End
+
+  // Question No: 9       Start
+  print("===================================");
+
+  List<int> number = [10, 5, 20, 15, 8, 25, 3];
+
+  int maximumNumber = numbers[0];
+
+  number.forEach((e) => {
+        if (e > maximumNumber) {maximumNumber = e}
+      });
+
+  print("Maximum Number is : $maximumNumber");
+
+  print("===================================");
+  // Question No: 9       End
+
+  // Question No: 10       Start
+  print("===================================");
+
+  List<String> originalList = [
+    'apple',
+    'banana',
+    'orange',
+    'banana',
+    'kiwi',
+    'apple',
+    'orange'
+  ];
+
+  List<String> newList = originalList.toSet().toList();
+
+  print('Original List: $originalList');
+  print('List without Duplicates: $newList');
+
+  print("===================================");
+  // Question No: 10       End
+
+  // Question No: 11       Start
+  print("===================================");
+
+  List<int> originalList1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  print("Enter the Value : ");
+  int n = int.parse(stdin.readLineSync()!);
+
+  List<int> newList1 = originalList1.take(n).toList();
+
+  print('Original List: $originalList1');
+  print('Number of Elements to Print: $n');
+  print('New List: $newList1');
+
+  print("===================================");
+  // Question No: 11       End
+
+  // Question No: 12       Start
+  print("===================================");
+
+  List<String> originalList2 = [
+    'apple',
+    'banana',
+    'orange',
+    'banana',
+    'kiwi',
+    'apple',
+    'orange'
+  ];
+
+  List<String> newList2 = List.of(originalList2.reversed);
+
+  print('Original List: $originalList2');
+  print('List without Duplicates: $newList2');
+
+  print("===================================");
+  // Question No: 12       End
+
+  // Question No: 13       Start
+  print("===================================");
+
+  List<int> originalList3 = [1, 2, 3, 4, 1, 2, 5, 6, 6, 7];
+
+  List<int> newList3 = originalList3.toSet().toList();
+
+  print('Original List: $originalList3');
+  print('List without Duplicates: $newList3');
+
+  print("===================================");
+  // Question No: 13       End
+
+  // Question No: 14       Start
+  print("===================================");
+
+  List<String> originalList4 = [
+    'apple',
+    'banana',
+    'orange',
+    'grapes',
+    'kiwi',
+    'peach'
+  ];
+
+  originalList4.sort();
+
+  print('Original List: $originalList4');
+
+  print("===================================");
+  // Question No: 14       End
+
+  // Question No: 15       Start
+  print("===================================");
+
+  List<int> originalList5 = [1, -2, 3, -4, 5, -6, 7, -8, 9, -10];
+
+  List<int> positiveNumbers =
+      originalList5.where((number) => number > 0).toList();
+
+  print('Original List: $originalList5');
+  print('List without Duplicates: $positiveNumbers');
+
+  print("===================================");
+  // Question No: 15       End
+
+  // Question No: 16       Start
+  print("===================================");
+
+  List<int> originalList6 = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  List<int> evenNumber =
+      originalList6.where((number) => number % 2 == 0).toList();
+
+  print('Original List: $originalList6');
+  print('List with Even Numbers: $evenNumber');
+
+  print("===================================");
+  // Question No: 16       End
+
+  // Question No: 17       Start
+  print("===================================");
+
+  List<int> originalList7 = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  List<int> squaredNumber =
+      originalList6.map((number) => number * number).toList();
+
+  print('Original List: $originalList7');
+  print('List with Even Numbers: $squaredNumber');
+
+  print("===================================");
+  // Question No: 17       End
+
+  // Question No: 18       Start
+  print("===================================");
+
+  Map person = {'name': 'John', 'age': 5, 'isStudent': true};
+
+  if (person['age'] >= 18 && person['isStudent'] == true) {
+    print("Eligible");
+  } else {
+    print("Not Eligible");
+  }
+
+  print("===================================");
+  // Question No: 18       End
+
+  // Question No: 19       Start
+  print("===================================");
+
+  Map product = {'name': 'Apple', 'price': 100, 'quantity': 0};
+
+  if (product['quantity'] > 0) {
+    print("In stock");
+  } else {
+    print("Out of stock");
+  }
+
+  print("===================================");
+  // Question No: 19       End
+
+  // Question No: 20       Start
+  print("===================================");
+
+  Map car = {'brand': 'Toyota', 'color': 'red', 'isSedan': true};
+
+  if (car['isSedan'] == true && car['color'] == 'red') {
+    print("Match");
+  } else {
+    print("Not Match");
+  }
+
+  print("===================================");
+  // Question No: 20       End
+
+  // Question No: 21       Start
+  print("===================================");
+
+  Map checkAdmin = {'name': 'isAdmin', 'isActive': true};
+
+  if (checkAdmin['name'] == 'isAdmin' && checkAdmin['isActive'] == true) {
+    print("Active admin");
+  } else {
+    print("Not an active admin");
+  }
+
+  print("===================================");
+  // Question No: 21       End
+
+  // Question No: 22       Start
+  print("===================================");
+
+  Map<String, int> product1 = {
+    'Apple': 10,
+    'Cherry': 20,
+    'Orange': 8,
+    'Grapes': 50
+  };
+
+  if (product1.containsKey('Apple')) {
+    print("Product found");
+  } else {
+    print("Product not found");
+  }
+
+  print("===================================");
+  // Question No: 22       End
 }
